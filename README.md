@@ -11,7 +11,7 @@ Application is designed so that users can enter the frontend service on port 500
 | frontend | 5000 |
 | service1 | 5001 |
 | service2 | 5002 |
-| backend | 5004 |
+| backend | 5003 |
 
 'frontend' service needs environment variables named:
 
@@ -21,4 +21,4 @@ Application is designed so that users can enter the frontend service on port 500
 - MYSQL_DB - schema name
 - MYSQL_SK - random string of letters and numbers (genuinely doesn't matter)
 
-also need a mysql database with a blank schema initialised (flask app will create tables and dummy data)
+Also need a mysql database with a blank schema initialised (flask app will create tables and dummy data)
