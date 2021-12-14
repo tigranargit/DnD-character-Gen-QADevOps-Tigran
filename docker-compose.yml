@@ -17,7 +17,7 @@ services:
     environment:
       - MYSQL_USER=root
       - MYSQL_PWD=root
-      - MYSQL_IP=database:3306
+      - MYSQL_IP=database
       - MYSQL_DB=dnddb
       - MYSQL_SK=sdlkfjsdfkj
   backend:
