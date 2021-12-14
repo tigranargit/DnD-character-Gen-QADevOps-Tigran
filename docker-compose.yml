@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  database:
+    image: mysql:5.7
+    container_name: database
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=dnddb
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    depends_on:
+      - database
+      - backend
+      - service1
+      - service2
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PWD=root
+      - MYSQL_IP=database:3306
+      - MYSQL_DB=dnddb
+      - MYSQL_SK=sdlkfjsdfkj
+  backend:
+    build: ./backend
+    container_name: backend
+  service1:
+    build: ./service1
+    container_name: service1
+  service2:
+    build: ./service2
+    container_name: service2
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
