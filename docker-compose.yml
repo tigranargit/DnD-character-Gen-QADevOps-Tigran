@@ -32,6 +32,8 @@ services:
   nginx:
     image: nginx:latest
     container_name: nginx
+    depends_on:
+      - frontend
     ports:
     - target: 80
       published: 80
