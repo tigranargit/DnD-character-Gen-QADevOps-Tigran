@@ -4,8 +4,8 @@ services:
     image: mysql:latest
     container_name: database
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=dnddb
+      - MYSQL_ROOT_PASSWORD=QAproject21
+      - MYSQL_DATABASE=dnd-database
   frontend:
     build: ./frontend
     container_name: frontend
@@ -15,10 +15,10 @@ services:
       - service1
       - service2
     environment:
-      - MYSQL_USER=root
-      - MYSQL_PWD=root
-      - MYSQL_IP=database:3306
-      - MYSQL_DB=dnddb
+      - MYSQL_USER=tigran@dnd-database
+      - MYSQL_PWD=QAproject21
+      - MYSQL_IP=dnd-database.mysql.database.azure.com
+      - MYSQL_DB=dnd-database
       - MYSQL_SK=sdlkfjsdfkj
   backend:
     build: ./backend
