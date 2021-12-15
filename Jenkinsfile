@@ -1,12 +1,11 @@
 pipeline {
     agent any
-
     stages {
         stage('Test Frontend') {
             steps {
-                cd /var/lib/jenkins/workspace/dndprojectpipe/frontend
-                pip install -r ./requirements.txt
-                python3 -m pytest --cov=app
+               sh "cd /var/lib/jenkins/workspace/dndprojectpipe/frontend"
+               sh "pip install -r ./requirements.txt"
+               sh "python3 -m pytest --cov=app"
             }
         }
     }
