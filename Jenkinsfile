@@ -79,8 +79,7 @@ pipeline {
         }
         stage('Deploy via Docker Swarm') {
             steps {
-                sh 'ssh -i $MASTERVM_KEY tigran@40.87.101.154'
-                sh 'docker stack deploy --compose-file docker-compose.yml dndapp'
+                sh 'ssh -i $MASTERVM_KEY tigran@40.87.101.154 << EOF docker stack deploy --compose-file docker-compose.yml EOF'
             }
         }
     }
