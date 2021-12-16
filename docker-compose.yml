@@ -1,14 +1,12 @@
 version: "3.8"
 services:
   database:
-    image: mysql:latest
-    container_name: database
+    image: tigranargit/database:latest
     environment:
       - MYSQL_ROOT_PASSWORD=QAproject21
       - MYSQL_DATABASE=dnd-database
   frontend:
-    build: ./frontend
-    container_name: frontend
+    image: tigranargit/frontend:latest
     depends_on:
       - database
       - backend
@@ -20,25 +18,29 @@ services:
       - MYSQL_IP=dnd-database.mysql.database.azure.com
       - MYSQL_DB=dnd-database
       - MYSQL_SK=sdlkfjsdfkj
+    ports:
+    - target: 5000
+      published: 5000
   backend:
-    build: ./backend
-    container_name: backend
+    image: tigranargit/backend:latest
+    ports:
+    - target: 5003
+    - published: 5003
   service1:
-    build: ./service1
-    container_name: service1
+    image: tigranargit/service1:latest
+    ports:
+    - target: 5001
+    - published: 5001
   service2:
-    build: ./service2
-    container_name: service2
+    image: tigranargit/service2:latest
+    ports:
+    - target: 5002
+    - published: 5002
   nginx:
-    image: nginx:latest
-    container_name: nginx
+    image: tigranargit/nginx:latest
     depends_on:
       - frontend
     ports:
     - target: 80
       published: 80
       protocol: tcp
-    volumes:
-    - type: bind
-      source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf

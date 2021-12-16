@@ -76,6 +76,13 @@ pipeline {
                 sh 'docker push tigranargit/nginx:latest'
             }
         }
+        stage('Deploy via Docker Swarm') {
+            steps {
+                sh 'ssh -i mastervm_key.pem tigran@40.87.101.154 << EOF touch hello.txt
+                docker stack deploy --compose-file docker-compose.yaml dnd-app-swarm
+                EOF'
+            }
+        }
     }
 
     post {
