@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub-login')
+        MYSQL_ROOT_PASSWORD='QAproject21'
+        MYSQL_DATABASE='dnd-database'
         MYSQL_USER='tigran@dnd-database'
         MYSQL_PWD='QAproject21'
         MYSQL_IP='dnd-database.mysql.database.azure.com'
@@ -52,6 +54,26 @@ pipeline {
         stage('Push Service 2') {
             steps {
                 sh 'docker push tigranargit/service2:latest'
+            }
+        }
+        stage('Build Database') {
+            steps {
+               sh 'docker build -t tigranargit/database:latest mysql:latest' 
+            }
+        }
+        stage('Push Database') {
+            steps {
+                sh 'docker push tigranargit/database:latest'
+            }
+        }
+        stage('Build Nginx') {
+            steps {
+               sh 'docker build -t tigranargit/nginx:latest nginx:latest' 
+            }
+        }
+        stage('Push Database') {
+            steps {
+                sh 'docker push tigranargit/nginx:latest'
             }
         }
     }
