@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub-login')
+        MASTERVM_KEY=credenetials('dcdf9b28-4e9a-40d4-805a-b52ef0a6526c')
         MYSQL_ROOT_PASSWORD='QAproject21'
         MYSQL_DATABASE='dnd-database'
         MYSQL_USER='tigran@dnd-database'
@@ -78,7 +79,7 @@ pipeline {
         }
         stage('Deploy via Docker Swarm') {
             steps {
-                sh 'ssh -i mastervm_key.pem tigran@40.87.101.154 << EOF docker stack deploy --compose-file docker-compose.yaml dnd-app-swarm EOF'
+                sh 'ssh -i $MASTERVM_KEY tigran@40.87.101.154 << EOF docker stack deploy --compose-file docker-compose.yaml dnd-app-swarm EOF'
             }
         }
     }
