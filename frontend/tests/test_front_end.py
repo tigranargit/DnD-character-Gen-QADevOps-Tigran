@@ -113,3 +113,8 @@ class TestModels(TestBase):
 
         self.assertEqual(feat.query.count(), 2)
 
+    def tearDown(self):
+        
+
+        db.session.remove()
+        db.drop_all()
