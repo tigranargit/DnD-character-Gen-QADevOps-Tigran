@@ -43,15 +43,13 @@ class TestBase(TestCase):
             password="test"
         )
 
-        new_feat = feat(id=2, name="test feat2", effects="Doesn't really matter at the end of the day, does it?")
+        new_feat = feat(id=4, name="test feat2", effects="Doesn't really matter at the end of the day, does it?")
 
         db.session.add(new_user)
         db.session.add(new_feat)
         db.session.commit()
 
     def tearDown(self):
-        
-
         db.session.remove()
         db.drop_all()
 
@@ -85,7 +83,7 @@ class TestRouting(TestBase):
 class TestModels(TestBase):
     
     def test_user_model(self):
-        
+
         db.session.commit()
         db.drop_all()
         db.session.commit()
@@ -113,7 +111,7 @@ class TestModels(TestBase):
         self.assertEqual(user.query.count(), 2)
     
     def test_feat_model(self):
-        new_feat2 = feat(id=3, name="test feat3", effects="You are a very fine person, Mr. Baggins, and I am very fond of you; but you are only quite a little fellow in a wide world after all! 'Thank goodness!' said Bilbo laughing, and handed him the tobacco jar.")
+        new_feat2 = feat(id=5, name="test feat3", effects="You are a very fine person, Mr. Baggins, and I am very fond of you; but you are only quite a little fellow in a wide world after all! 'Thank goodness!' said Bilbo laughing, and handed him the tobacco jar.")
 
         db.session.add(new_feat2)
         db.session.commit()
