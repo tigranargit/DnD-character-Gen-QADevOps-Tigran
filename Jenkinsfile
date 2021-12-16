@@ -78,9 +78,7 @@ pipeline {
         }
         stage('Deploy via Docker Swarm') {
             steps {
-                sh 'ssh -i mastervm_key.pem tigran@40.87.101.154 << EOF touch hello.txt
-                docker stack deploy --compose-file docker-compose.yaml dnd-app-swarm
-                EOF'
+                sh 'ssh -i mastervm_key.pem tigran@40.87.101.154 << EOF docker stack deploy --compose-file docker-compose.yaml dnd-app-swarm EOF'
             }
         }
     }
