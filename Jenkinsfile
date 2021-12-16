@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub-login')
-        MASTERVM_KEY=credenetials('dcdf9b28-4e9a-40d4-805a-b52ef0a6526c')
+        MASTERVM_KEY=credentials('dcdf9b28-4e9a-40d4-805a-b52ef0a6526c')
         MYSQL_ROOT_PASSWORD='QAproject21'
         MYSQL_DATABASE='dnd-database'
         MYSQL_USER='tigran@dnd-database'
