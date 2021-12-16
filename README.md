@@ -23,5 +23,3 @@ Application is designed so that users can enter the frontend service on port 500
 
 Also need a mysql database with a blank schema initialised (flask app will create tables and dummy data)
 
-trololo
-
