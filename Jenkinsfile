@@ -58,7 +58,7 @@ pipeline {
         }
         stage('Build Database') {
             steps {
-               sh 'docker build -t tigranargit/database:latest mysql:latest' 
+               sh 'docker build -t tigranargit/database:latest /var/lib/jenkins/workspace/dndprojectpipe/database' 
             }
         }
         stage('Push Database') {
@@ -68,7 +68,7 @@ pipeline {
         }
         stage('Build Nginx') {
             steps {
-               sh 'docker build -t tigranargit/nginx:latest nginx:latest' 
+               sh 'docker build -t tigranargit/nginx:latest /var/lib/jenkins/workspace/dndprojectpipe/nginx' 
             }
         }
         stage('Push Nginx') {

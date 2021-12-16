@@ -1,0 +1,4 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD=QAproject21
+ENV MYSQL_DATABASE=dnd-database
