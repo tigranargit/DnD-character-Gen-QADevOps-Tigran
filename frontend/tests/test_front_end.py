@@ -31,7 +31,7 @@ class TestBase(TestCase):
 
         # create test user
         new_user = user(
-            char_name="test",
+            char_name="test2",
             race="Human",
             char_class="useless",
             strength=1,
