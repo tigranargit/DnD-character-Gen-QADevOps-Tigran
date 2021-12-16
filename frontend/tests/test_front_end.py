@@ -25,7 +25,9 @@ class TestBase(TestCase):
 
         db.session.commit()
         db.drop_all()
+        db.session.commit()
         db.create_all()
+        db.session.commit()
 
         # create test user
         new_user = user(
