@@ -9,9 +9,24 @@ pipeline {
         MYSQL_SK='sdlkfjsdfkj'
     }
     stages {
+         stage('DockerHub Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
         stage('Build Frontend') {
             steps {
-                sh 'docker build -t frontend:latest /var/lib/jenkins/workspace/dndprojectpipe/frontend'
+                sh 'sudo docker build -t frontend:latest /var/lib/jenkins/workspace/dndprojectpipe/frontend'
+            }
+        }
+        stage('Push Frontend') {
+            steps {
+                sh 'docker push frontend:latest'
+            }
+        }
+        stage('Remove Frontend locally') {
+            steps {
+                sh 'docker rmi frontend:latest' 
             }
         }
         stage('Build Backend') {
@@ -19,9 +34,29 @@ pipeline {
                 sh 'docker build -t backend:latest /var/lib/jenkins/workspace/dndprojectpipe/backend'
             }
         }
+        stage('Push Backend') {
+            steps {
+                sh 'docker push backend:latest'
+            }
+        }
+        stage('Remove Backend locally') {
+            steps {
+                sh 'docker rmi backend:latest' 
+            }
+        }
         stage('Build Service 1') {
             steps {
                 sh 'docker build -t service1:latest /var/lib/jenkins/workspace/dndprojectpipe/service1'
+            }
+        }
+        stage('Push Service 1') {
+            steps {
+                sh 'docker push service1:latest'
+            }
+        }
+        stage('Remove Service 1 locally') {
+            steps {
+                sh 'docker rmi service1:latest' 
             }
         }
         stage('Build Service 2') {
@@ -29,22 +64,14 @@ pipeline {
                sh 'docker build -t service2:latest /var/lib/jenkins/workspace/dndprojectpipe/service2' 
             }
         }
-        stage('DockerHub Login') {
+        stage('Push Service 2') {
             steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-            }
-        }
-        stage('Push images to Dockerhub') {
-            steps {
-                sh 'docker push frontend:latest'
-                sh 'docker push backend:latest'
-                sh 'docker push service1:latest'
                 sh 'docker push service2:latest'
             }
         }
-        stage('Remove created images locally') {
+        stage('Remove Service 2 locally') {
             steps {
-                sh 'docker rmi frontend:latest backend:latest service1:latest service2:latest'
+                sh 'docker rmi service2:latest' 
             }
         }
     }
