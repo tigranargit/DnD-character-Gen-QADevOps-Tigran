@@ -19,9 +19,7 @@ class TestBase(TestCase):
         return app
 
     def setUp(self):
-        """
-        Will be called before every test
-        """
+        
 
         db.session.commit()
         db.drop_all()
@@ -31,7 +29,7 @@ class TestBase(TestCase):
 
         # create test user
         new_user = user(
-            char_name="test2",
+            char_name="test1",
             race="Human",
             char_class="useless",
             strength=1,
@@ -52,9 +50,7 @@ class TestBase(TestCase):
         db.session.commit()
 
     def tearDown(self):
-        """
-        Will be called after every test
-        """
+        
 
         db.session.remove()
         db.drop_all()
