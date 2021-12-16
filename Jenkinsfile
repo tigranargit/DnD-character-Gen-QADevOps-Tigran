@@ -16,62 +16,62 @@ pipeline {
         }
         stage('Build Frontend') {
             steps {
-                sh 'docker build -t frontend:latest /var/lib/jenkins/workspace/dndprojectpipe/frontend'
+                sh 'docker build -t tigranargit/frontend:latest /var/lib/jenkins/workspace/dndprojectpipe/frontend'
             }
         }
         stage('Push Frontend') {
             steps {
-                sh 'docker push frontend:latest'
+                sh 'docker push tigranargit/frontend:latest'
             }
         }
         stage('Remove Frontend locally') {
             steps {
-                sh 'docker rmi frontend:latest' 
+                sh 'docker rmi tigranargit/frontend:latest' 
             }
         }
         stage('Build Backend') {
             steps {
-                sh 'docker build -t backend:latest /var/lib/jenkins/workspace/dndprojectpipe/backend'
+                sh 'docker build -t tigranargit/backend:latest /var/lib/jenkins/workspace/dndprojectpipe/backend'
             }
         }
         stage('Push Backend') {
             steps {
-                sh 'docker push backend:latest'
+                sh 'docker push tigranargit/backend:latest'
             }
         }
         stage('Remove Backend locally') {
             steps {
-                sh 'docker rmi backend:latest' 
+                sh 'docker rmi tigranargit/backend:latest' 
             }
         }
         stage('Build Service 1') {
             steps {
-                sh 'docker build -t service1:latest /var/lib/jenkins/workspace/dndprojectpipe/service1'
+                sh 'docker build -t tigranargit/service1:latest /var/lib/jenkins/workspace/dndprojectpipe/service1'
             }
         }
         stage('Push Service 1') {
             steps {
-                sh 'docker push service1:latest'
+                sh 'docker push tigranargit/service1:latest'
             }
         }
         stage('Remove Service 1 locally') {
             steps {
-                sh 'docker rmi service1:latest' 
+                sh 'docker rmi tigranargit/service1:latest' 
             }
         }
         stage('Build Service 2') {
             steps {
-               sh 'docker build -t service2:latest /var/lib/jenkins/workspace/dndprojectpipe/service2' 
+               sh 'docker build -t tigranargit/service2:latest /var/lib/jenkins/workspace/dndprojectpipe/service2' 
             }
         }
         stage('Push Service 2') {
             steps {
-                sh 'docker push service2:latest'
+                sh 'docker push tigranargit/service2:latest'
             }
         }
         stage('Remove Service 2 locally') {
             steps {
-                sh 'docker rmi service2:latest' 
+                sh 'docker rmi tigranargit/service2:latest' 
             }
         }
     }
