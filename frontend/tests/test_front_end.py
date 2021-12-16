@@ -85,6 +85,13 @@ class TestRouting(TestBase):
 class TestModels(TestBase):
     
     def test_user_model(self):
+        
+        db.session.commit()
+        db.drop_all()
+        db.session.commit()
+        db.create_all()
+        db.session.commit()
+
         new_user2 = user(
             char_name="test2",
             race="Human",
@@ -115,6 +122,5 @@ class TestModels(TestBase):
 
     def tearDown(self):
         
-
         db.session.remove()
         db.drop_all()
