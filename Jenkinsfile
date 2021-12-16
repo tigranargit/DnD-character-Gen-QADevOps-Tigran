@@ -13,7 +13,7 @@ pipeline {
                sh "cd /var/lib/jenkins/workspace/dndprojectpipe/frontend"
                sh "pip3 install -r /var/lib/jenkins/workspace/dndprojectpipe/frontend/requirements.txt"
                sh "cd /var/lib/jenkins/workspace/dndprojectpipe/frontend"
-               sh "pytest tests"
+               sh "python3 -m pytest"
             }
         }
     }
