@@ -14,7 +14,7 @@ class TestBase(TestCase):
         # pass in test configurations
         config_name = 'testing'
         app.config.update(
-            SQLALCHEMY_DATABASE_URI='mysql+pymysql://'+str(getenv('MYSQL_USER'))+':'+str(getenv('MYSQL_PWD'))+'@'+str(getenv('MYSQL_IP'))+'/testDnD'     
+            SQLALCHEMY_DATABASE_URI='mysql+pymysql://'+str(getenv('MYSQL_USER'))+':'+str(getenv('MYSQL_PWD'))+'@'+str(getenv('MYSQL_IP'))+'/testdnd'     
             )
         return app
 
@@ -23,10 +23,11 @@ class TestBase(TestCase):
         Will be called before every test
         """
 
-        self.app = create_app(self)
         db.session.commit()
         db.drop_all()
+        db.session.commit()
         db.create_all()
+        db.session.commit()
 
         # create test user
         new_user = user(
