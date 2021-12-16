@@ -13,7 +13,7 @@ class TestBase(TestCase):
 
         # pass in test configurations
         config_name = 'testing'
-        app.config.update(
+        self.app.config.update(
             SQLALCHEMY_DATABASE_URI='mysql+pymysql://'+str(getenv('MYSQL_USER'))+':'+str(getenv('MYSQL_PWD'))+'@'+str(getenv('MYSQL_IP'))+'/testDnD'     
             )
         return app
