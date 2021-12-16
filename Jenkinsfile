@@ -71,7 +71,7 @@ pipeline {
                sh 'docker build -t tigranargit/nginx:latest nginx:latest' 
             }
         }
-        stage('Push Database') {
+        stage('Push Nginx') {
             steps {
                 sh 'docker push tigranargit/nginx:latest'
             }
