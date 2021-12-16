@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build Frontend') {
             steps {
-                sh 'sudo docker build -t frontend:latest /var/lib/jenkins/workspace/dndprojectpipe/frontend'
+                sh 'docker build -t frontend:latest /var/lib/jenkins/workspace/dndprojectpipe/frontend'
             }
         }
         stage('Push Frontend') {
