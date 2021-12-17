@@ -30,52 +30,52 @@ pipeline {
         }
         stage('Build Backend') {
             steps {
-                sh 'docker build -t tigranargit/backend:latest /var/lib/jenkins/workspace/dndprojectpipe/backend'
+                sh 'docker build -t tigranargit/backend:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/backend'
             }
         }
         stage('Push Backend') {
             steps {
-                sh 'docker push tigranargit/backend:latest'
+                sh 'docker push tigranargit/backend:build-$BUILD_NUMBER'
             }
         }
         stage('Build Service 1') {
             steps {
-                sh 'docker build -t tigranargit/service1:latest /var/lib/jenkins/workspace/dndprojectpipe/service1'
+                sh 'docker build -t tigranargit/service1:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/service1'
             }
         }
         stage('Push Service 1') {
             steps {
-                sh 'docker push tigranargit/service1:latest'
+                sh 'docker push tigranargit/service1:build-$BUILD_NUMBER'
             }
         }
         stage('Build Service 2') {
             steps {
-               sh 'docker build -t tigranargit/service2:latest /var/lib/jenkins/workspace/dndprojectpipe/service2' 
+               sh 'docker build -t tigranargit/service2:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/service2' 
             }
         }
         stage('Push Service 2') {
             steps {
-                sh 'docker push tigranargit/service2:latest'
+                sh 'docker push tigranargit/service2:build-$BUILD_NUMBER'
             }
         }
         stage('Build Database') {
             steps {
-               sh 'docker build -t tigranargit/database:latest /var/lib/jenkins/workspace/dndprojectpipe/database' 
+               sh 'docker build -t tigranargit/databse:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/database' 
             }
         }
         stage('Push Database') {
             steps {
-                sh 'docker push tigranargit/database:latest'
+                sh 'docker push tigranargit/databse:build-$BUILD_NUMBER'
             }
         }
         stage('Build Nginx') {
             steps {
-               sh 'docker build -t tigranargit/nginx:latest /var/lib/jenkins/workspace/dndprojectpipe/nginx' 
+               sh 'docker build -t tigranargit/nginx:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/nginx' 
             }
         }
         stage('Push Nginx') {
             steps {
-                sh 'docker push tigranargit/nginx:latest'
+                sh 'docker push tigranargit/nginx:build-$BUILD_NUMBER'
             }
         }
         stage('Deploy via Docker Swarm') {
