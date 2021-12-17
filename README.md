@@ -12,7 +12,7 @@
 
 # The process:
 
-!()[.cicddiagram.png]
+<img title="ci/cd diagram" alt="ci/cd diagram" src="https://github.com/tigranargit/DnD-character-Gen-QADevOps-Tigran/blob/62e68bc9ecc4e9e6ea399e0877a23067cd021051/cicddiagram.png">
 
 The app is divided into services: frontend, backend, service1, service2, database and nginx.
 
