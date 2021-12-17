@@ -12,7 +12,7 @@
 
 # The process:
 
-!()[cicddiagram.png]
+!()[/cicddiagram.png]
 
 The app is divided into services: frontend, backend, service1, service2, database and nginx.
 
