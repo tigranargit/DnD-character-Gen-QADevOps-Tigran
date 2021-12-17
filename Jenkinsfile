@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Build Frontend') {
             steps {
-                sh 'docker build -t image="tigranargit/frontend:build-$BUILD_NUMBER" /var/lib/jenkins/workspace/dndprojectpipe/frontend'
+                sh 'docker build -t tigranargit/frontend:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/frontend'
             }
         }
         stage('Push Frontend') {
             steps {
-                sh 'docker push image="tigranargit/frontend:build-$BUILD_NUMBER"'
+                sh 'docker push tigranargit/frontend:build-$BUILD_NUMBER'
             }
         }
         stage('Build Backend') {
