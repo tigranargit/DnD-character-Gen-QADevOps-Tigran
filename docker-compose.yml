@@ -1,12 +1,12 @@
 version: "3.8"
 services:
   database:
-    image: tigranargit/database:latest
+    image: tigranargit/database
     environment:
       - MYSQL_ROOT_PASSWORD=QAproject21
       - MYSQL_DATABASE=dnd-database
   frontend:
-    image: tigranargit/frontend:latest
+    image: tigranargit/frontend
     depends_on:
       - database
       - backend
@@ -22,22 +22,22 @@ services:
     - target: 5000
       published: 5000
   backend:
-    image: tigranargit/backend:latest
+    image: tigranargit/backend
     ports:
     - target: 5003
     - published: 5003
   service1:
-    image: tigranargit/service1:latest
+    image: tigranargit/service1
     ports:
     - target: 5001
     - published: 5001
   service2:
-    image: tigranargit/service2:latest
+    image: tigranargit/service2
     ports:
     - target: 5002
     - published: 5002
   nginx:
-    image: tigranargit/nginx:latest
+    image: tigranargit/nginx
     depends_on:
       - frontend
     ports:
