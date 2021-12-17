@@ -60,12 +60,12 @@ pipeline {
         }
         stage('Build Database') {
             steps {
-               sh 'docker build -t tigranargit/databse:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/database' 
+               sh 'docker build -t tigranargit/database:build-$BUILD_NUMBER /var/lib/jenkins/workspace/dndprojectpipe/database' 
             }
         }
         stage('Push Database') {
             steps {
-                sh 'docker push tigranargit/databse:build-$BUILD_NUMBER'
+                sh 'docker push tigranargit/database:build-$BUILD_NUMBER'
             }
         }
         stage('Build Nginx') {
