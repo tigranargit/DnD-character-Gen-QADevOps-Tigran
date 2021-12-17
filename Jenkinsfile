@@ -10,6 +10,7 @@ pipeline {
         MYSQL_IP='dnd-database.mysql.database.azure.com'
         MYSQL_DB='dnd-database'
         MYSQL_SK='sdlkfjsdfkj'
+        image="tigranargit/frontend:build-$BUILD_NUMBER"
     }
     stages {
          stage('DockerHub Login') {
@@ -19,12 +20,12 @@ pipeline {
         }
         stage('Build Frontend') {
             steps {
-                sh 'docker build -t tigranargit/frontend:latest /var/lib/jenkins/workspace/dndprojectpipe/frontend'
+                sh 'docker build -t image="tigranargit/frontend:build-$BUILD_NUMBER" /var/lib/jenkins/workspace/dndprojectpipe/frontend'
             }
         }
         stage('Push Frontend') {
             steps {
-                sh 'docker push tigranargit/frontend:latest'
+                sh 'docker push image="tigranargit/frontend:build-$BUILD_NUMBER"'
             }
         }
         stage('Build Backend') {
