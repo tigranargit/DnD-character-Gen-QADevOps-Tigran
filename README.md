@@ -36,7 +36,7 @@ Services run on 5000, 5001, 5002 and 5003 ports, while nginx acts as a reverse p
 
 # Test Results 
 
-Below is the screenshot of the completed tested results as part of the earlier successful Jenkinks pipeline. Testing did not work during the later stages, because of a problem with Azure MySQL database integration. Will be reviewing this issue in duetime. 
+Below is the screenshot of the completed test results as part of the earlier successful Jenkinks pipeline. Testing did not work during the later stages, because of a problem with Azure MySQL database integration. Will be reviewing this issue in duetime. 
 
 <img title="ci/cd diagram" alt="ci/cd diagram" src="https://github.com/tigranargit/DnD-character-Gen-QADevOps-Tigran/blob/a31640d35618f9c21a9a33df53200a3d969465c1/testresults.png">
 
