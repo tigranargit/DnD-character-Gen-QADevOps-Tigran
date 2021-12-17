@@ -10,7 +10,6 @@ pipeline {
         MYSQL_IP='dnd-database.mysql.database.azure.com'
         MYSQL_DB='dnd-database'
         MYSQL_SK='sdlkfjsdfkj'
-        image="tigranargit/frontend:build-$BUILD_NUMBER"
     }
     stages {
          stage('DockerHub Login') {
