@@ -1,16 +1,16 @@
-DnD App CI/CD implementation
+# DnD App CI/CD implementation
 
-Set up:
+# Set up:
 
-Code in VSC on my local machine with a GitHub repositoty integration
-GitHub webhook triggering Jenkins pipeline with every push
-Jenkins VM
-Master VM
-Worker VM
-DockerHub
-Jira for project management
+- Code in VSC on my local machine with a GitHub repositoty integration
+- GitHub webhook triggering Jenkins pipeline with every push
+- Jenkins VM
+- Master VM
+- Worker VM
+- DockerHub
+- Jira for project management
 
-The process:
+# The process:
 
 The app is divided into services: frontend, backend, service1, service2, database and nginx.
 
@@ -22,7 +22,7 @@ The Jenkins VM is separate to the other two VMs. The Master VM is set up as a do
 
 Services run on 5000, 5001, 5002 and 5003 ports, while nginx acts as a reverse proxy on port 80, being the only point of access for the users. The database was implemented using Azure MySQL.
 
-Jenkins pipeline:
+# Jenkins pipeline:
 
  1. Test the front end
  2. Build each service one by one for easy error detection
